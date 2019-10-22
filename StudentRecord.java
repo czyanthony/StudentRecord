@@ -15,7 +15,14 @@ public class StudentRecord
     */
    private double average(int first, int last)
    {
-      return 0; //here so the class compiles
+       int sum = 0;
+       
+      for(int i = first; i<last+1; i++){ 
+          sum+=scores[i];
+        }
+        int average = sum/(last-first+1);
+        return average;
+       //here so the class compiles
    }
     
    /** returns true if each successive value in scores is greater than
@@ -23,7 +30,16 @@ public class StudentRecord
     */
    private boolean hasImproved()
    {
-      return false; //here so the class compiles
+      boolean flag = false;
+      int max = scores[0];
+      
+     
+      for (int i = 0; i<scores.length; i++){
+          if (scores[i]>=max){
+              max=scores[i]
+        }
+        
+       return flag; //here so the class compiles
    }  
    
    /** if the values in scores have imrpoved, returns the average of
