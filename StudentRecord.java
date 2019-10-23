@@ -36,19 +36,41 @@ public class StudentRecord
      
       for (int i = 0; i<scores.length; i++){
           if (scores[i]>=max){
-              max=scores[i]
+              max=scores[i];
+              flag = true;
+        }
+        else{
+            flag = false;
         }
         
-       return flag; //here so the class compiles
+        //here so the class compiles
    }  
-   
-   /** if the values in scores have imrpoved, returns the average of
+   return flag;
+}
+   /** if the values in scores have improved, returns the average of
     *  the elements in scores with indexes greater than or equal to 
     *  scores.length/2; otherwise, returns the average of all the 
     *  values in scores
     */
    public double finalAverage()
    {
-      return 0; //here so the class compiles
+      double sum = 0;
+      double average = 0;
+      if (hasImproved()){
+          
+          for (int i = scores.length/2; i<scores.length; i++){
+              sum+=scores[i];
+            }
+          average = sum/(scores.length-scores.length/2);
+        }
+      else{
+          for (int i = 0; i<scores.length; i++){
+              sum+=scores[i];
+            }
+          average = sum/(scores.length);
+        }
+        
+       
+      return average;  //here so the class compiles
    } 
 }
